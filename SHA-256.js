@@ -1,6 +1,10 @@
-const crypto = require('crypto');
+const crypto = require("crypto");
+
+function hash(data) {
+  const hash = crypto.createHash("sha256");
+  hash.update(data);
+  return hash.digest("hex");
+}
 
 const input = "Ashiq";
-const hash = crypto.createHash('sha256').update(input).digest('hex');
-
-console.log(hash)
+console.log(`Hash Input: ${input} || Hash Value: ${hash(input)}`);
